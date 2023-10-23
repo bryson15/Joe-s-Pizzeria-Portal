@@ -1,0 +1,28 @@
+{
+    "OrderID": 12345,
+    "OrderDate": "2023-10-22",
+    "StoreID": 1001,  // Your Student ID
+    "OrderValue": 50.00,
+    "Customer": {
+        "CustomerID": 6789,
+        "FirstName": "John",
+        "LastName": "Doe",
+        "Phone": "123-456-7890",
+        "Address": "123 Main St",
+        "PostCode": "1234"
+    },
+    "OrderItems": [
+        {
+            "OrderItemID": 1,
+            "ProductName": "Margherita Pizza",
+            "Quantity": 1,
+            "ListPrice": 20.00
+        },
+        {
+            "OrderItemID": 2,
+            "ProductName": "Pepperoni Pizza",
+            "Quantity": 2,
+            "ListPrice": 15.00
+        }
+    ]
+}

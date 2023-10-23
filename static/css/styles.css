@@ -1,0 +1,157 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Karla:wght@300&display=swap");
+
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow-x: hidden;
+}
+
+header {
+    width: 100vw;
+    min-height: 12rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: -2rem;
+}
+
+h1 {
+    font-family: "Nunito";
+    font-size: 3rem;
+    margin-top: -1rem;
+    text-align: center;
+    color: #ad4256;
+}
+
+h2 {
+    font-family: "Karla";
+    text-align: center;
+    margin-top: 5rem;
+}
+
+h3 {
+    font-family: "Karla";
+    color: #444444;
+}
+
+h4 {
+    font-family: "Karla";
+    color: #444444;
+    font-size: 1.3rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    margin-top: 3rem;
+}
+
+button {
+    background-color: #f6f6f6;
+    height: 80vh;
+    flex: 1;
+    margin: 1rem;
+    max-width: 20rem;
+    min-height: 25rem;
+    height: 60vh;
+    border-radius: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: none;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: #e6e6e6;
+    outline: 2px solid black;
+}
+
+button:hover .button {
+    margin-top: -1rem;
+}
+
+button:hover .shadow {
+    margin-top: -2.5rem;
+}
+
+button:first-child {
+    margin-left: 2rem;
+}
+
+button:last-child {
+    margin-right: 2rem;
+}
+
+img {
+    margin-top: 2rem;
+    width: 8rem;
+}
+
+.button {
+    width: 80%;
+    height: 3rem;
+    margin-top: 2rem;
+    border-radius: 1.5rem;
+    background-color: black;
+    color: white;
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Nunito";
+    transition: margin-top 0.05s ease;
+    z-index: 10;
+}
+
+.shadow {
+    width: 80%;
+    margin-top: -3rem;
+    height: 3rem;
+    border-radius: 1.5rem;
+    background-color: #ad4256;
+    color: white;
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: margin-top 0.05s ease;
+    font-family: "Nunito";
+}
+
+.grow {
+    flex: 1;
+}
+
+@media (max-width: 65rem) {
+    main {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    button:first-child {
+        margin-left: 2rem;
+    }
+
+    button {
+        margin-left: 2rem;
+    }
+
+    button:last-child {
+        margin-left: 3rem;
+        margin-bottom: 6rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    img {
+        margin-top: 1rem;
+    }
+}
