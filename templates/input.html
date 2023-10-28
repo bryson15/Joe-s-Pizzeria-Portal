@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Input - Joe's Pizzeria Portal</title>
+        <link rel="stylesheet" href="static/css/styles.css" />
+        <meta charset="UTF-8" />
+    </head>
+    <body>
+        <a href="/" class="back">
+            <img class="arrow" src="static/svg/left.svg" />
+            <h1 class="portal">Portal</h1>
+        </a>
+        <header>
+            <h1 class="title">Input</h1>
+            <h2 class="subtitle">Record an order placed instore</h2>
+        </header>
+        <form class="divided">
+            <div class="left">
+                <div class="field">
+                    <div class="top">Customer</div>
+                    <div class="line"></div>
+                    <div class="row">
+                        <label class="label" for="username">Address:</label>
+                        <div class="grow"></div>
+                        <input class="input" type="text" name="address">
+                    </div>
+                    <div class="row">
+                        <label class="label" for="username">Customer ID:</label>
+                        <div class="grow"></div>
+                        <input class="input" type="number" min="0" name="customer-id">
+                    </div>
+                    <div class="row">
+                        <label class="label" for="username">First Name:</label>
+                        <div class="grow"></div>
+                        <input class="input" type="text" name="first-name" required>
+                    </div>
+                    <div class="row">
+                        <label class="label" for="username">Last Name:</label>
+                        <div class="grow"></div>
+                        <input class="input" type="text" name="last-name">
+                    </div>
+                    <div class="row">
+                        <label class="label" for="username">Phone No:</label>
+                        <div class="grow"></div>
+                        <input class="input" type="number" min="0" name="phone-no">
+                    </div>
+                    <div class="row">
+                        <label class="label" for="username">Postcode:</label>
+                        <div class="grow"></div>
+                        <input id="postcode" class="input" type="number" min="0" name="postcode">
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="top">Driver</div>
+                    <div class="line"></div>
+                    <div class="row">
+                        <label class="label" for="username">Driver ID:</label>
+                        <div class="grow"></div>
+                        <label id="driver-id" class="label thin"></label>
+                    </div>
+                    <div class="row">
+                        <label class="label">Commission Rate:</label>
+                        <div class="grow"></div>
+                        <label id="commission-rate" class="label thin"></label>
+                    </div>
+                </div>
+            </div>
+            <div class="right">
+                <div class="field">
+                    <div class="top">Transaction</div>
+                    <div class="line"></div>
+                    <div class="row">
+                        <label class="label">Order ID:</label>
+                        <input class="input" type="number" name="order-id" min="1" style="width: 6rem" required>
+                        <label class="label">Order Date:</label>
+                        <input type="date" id="date" name="selected-date" required>
+                        <div style="width: 1rem"></div>
+                        <label class="label">Store ID:</label>
+                        <label class="label thin">1155231</label>
+                        <div style="width: 1rem"></div>
+                        <label class="label">Order Total:</label>
+                        <label id="total" class="label thin"></label>
+                        <div style="width: 1rem"></div>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="row">
+                        <div class="top">Items</div>
+                        <img class="plus" src="static/svg/plus.svg"/>
+                    </div>
+                    <div class="line"></div>
+                    <div id="items">
+                        <div class="row">
+                            <label class="label" for="username">Item Name:</label>
+                            <select name="items" class="dropdown">
+                                {% if items %}
+                                    {% for item in items %}
+                                        <option value="{{ item[0] }}" data-price="{{ item[1] }}">{{ item[0] }}</option>
+                                    {% endfor %}
+                                {% endif %}
+                            </select>
+                            <label class="label" for="username">Quantity:</label>
+                            <input id="qty" class="input" type="number" min="0" name="quantity" style="width: 6rem" required>
+                            <label class="label">Order Item ID:</label>
+                            <input class="input" type="number" min="0" name="order-item-id" style="width: 6rem">
+                            <div style="width: 1rem"></div>
+                            <label class="label">Item Price:</label>
+                            <label id="price" class="label thin">18.75</label>
+                            <div style="width: 1rem"></div>
+                            <img class="cross" src="static/svg/cross.svg"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="row">
+                        <div class="top">Result</div>
+                        <button class="button small smaller" type="submit">Input</button>
+                    </div>
+                    <div class="line"></div>
+                    <div>
+                    </div>
+                    <p id="error" style="margin-top: 3rem;position:absolute"></p>
+                    <a id="result" style="visibility: hidden" href="" target="_blank">
+                        <div class="result input-result" style="margin-left: 0.5rem; width: calc(100% - 1rem)">
+                            <h2 class="result-text" style="font-size: 1rem">order_id:  -> </h2>
+                            <div class="grow"></div>
+                            <img class="open" src="static/svg/open.svg"/>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </form>
+    </body>
+    <script src="static/js/input.mjs" type="module"></script>
+</html>

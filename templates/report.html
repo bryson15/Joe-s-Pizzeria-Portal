@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Report - Joe's Pizzeria Portal</title>
+        <link rel="stylesheet" href="static/css/styles.css" />
+        <meta charset="UTF-8" />
+    </head>
+    <body>
+        <a href="/" class="back">
+            <img class="arrow" src="static/svg/left.svg" />
+            <h1 class="portal">Portal</h1>
+        </a>
+        <header>
+            <h1 class="title"> Report </h1>
+            <h2 class="subtitle">Perform the end-of-day operation</h2>
+        </header>
+        <main>
+            <div class="main">
+                <form id="form" action="/report" method="post">
+                    <label class="date" for="date">Date</label>
+                    <input type="date" id="date" name="selected_date" value="{{ selected_date or '' }}">
+                    <div class="grow"></div>
+                    <button class="button small" type="submit">Report</button>
+                </form>   
+                <div class="line"></div>
+                <div id="loading" style="display:none;">
+                    <div class="spinner"></div>
+                </div>
+                {% if error %}
+                    <p id="error">{{ error }}</p>
+                {% endif %}  
+                <div id="result" class="scroll move-up">
+                {% if result %}
+                    <p class="summary"><b>summary_id:</b> {{ result[0] }}</p>
+                    <p class="summary"><b>store_id:</b> {{ result[1] }}</p>
+                    <p class="summary"><b>summary_date:</b> {{ result[2] }}</p>
+                    <p class="summary"><b>total_sales:</b> {{ result[3] }}</p>
+                    <p class="summary"><b>total_orders:</b> {{ result[4] }}</p>
+                    <p class="summary"><b>best_product:</b> {{ result[5] }}</p>
+                {% endif %}
+                </div>
+            </div>
+        </main>
+    </body>
+    <script src="static/js/clear.mjs" type="module"></script>
+</html>

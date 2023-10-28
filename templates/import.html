@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Import - Joe's Pizzeria Portal</title>
+        <link rel="stylesheet" href="static/css/styles.css" />
+        <meta charset="UTF-8" />
+    </head>
+    <body>
+        <a href="/" class="back">
+            <img class="arrow" src="static/svg/left.svg" />
+            <h1 class="portal">Portal</h1>
+        </a>
+        <header>
+            <h1 class="title"> Import </h1>
+            <h2 class="subtitle">Import daily transactions from Joe's Place</h2>
+        </header>
+        <main>
+            <div class="main">
+                <form id="form" action="/import" method="post">
+                    <label class="date" for="date">Date</label>
+                    <input type="date" id="date" name="selected_date" value="{{ selected_date or '' }}">
+                    <div class="grow"></div>
+                    <button class="button small" type="submit">Import</button>
+                </form>   
+                <div class="line"></div>
+                <div id="loading" style="display:none;">
+                    <div class="spinner"></div>
+                </div>
+                {% if error %}
+                    <p id="error">Error: {{ error }}</p>
+                {% endif %}  
+                <div id="result" class="scroll">
+                {% if result %}
+                    {% for item in result %}
+                        <a href="{{ item[2] }}" target="_blank">
+                            <div class="result">
+                                <h2 class="result-text">order_id: {{ item[0] }} -> {{ item[1] }}</h2>
+                                <div class="grow"></div>
+                                <img class="open" src="static/svg/open.svg"/>
+                            </div>
+                        </a>
+                    {% endfor %}
+                {% endif %}
+                </div>
+            </div>
+        </main>
+    </body>
+    <script src="static/js/clear.mjs" type="module"></script>
+</html>
